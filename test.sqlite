@@ -1,0 +1,40 @@
+--Get feel for users table
+SELECT *
+ FROM users
+ LIMIT 20;
+ 
+ --Find birthdays in '80s'
+ SELECT *
+ FROM users
+ WHERE birthday between '1980.01.01' AND '1989-12-31'
+ LIMIT 10;
+ 
+ --Find users who signed up before may '17
+ SELECT email, created_at
+ FROM users
+ WHERE created_at <='2017-04-30'
+ LIMIT 10;
+ 
+ --Find emails of users receiving 'bears' test
+ SELECT email, created_at
+ FROM users
+ WHERE test = 'bears'
+ LIMIT 10;
+ 
+ --Find emails who received campaign BBB
+ SELECT email, campaign
+ FROM users
+ WHERE campaign LIKE 'BBB%'
+ LIMIT 10;
+ 
+ --Find emails who received campaign ad 2
+ SELECT email, campaign
+ FROM users
+ WHERE campaign LIKE '%2'
+ LIMIT 10;
+ 
+  --Find emails who received campaign and ad test --> non null values
+ SELECT email, campaign
+ FROM users
+ WHERE campaign IS NOT NULL AND test IS NOT NULL
+ LIMIT 10;
